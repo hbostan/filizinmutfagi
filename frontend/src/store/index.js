@@ -28,7 +28,7 @@ export default new Vuex.Store({
       commit('SET_FETCHING', true);
       return new Promise((resolve) => {
         setTimeout(async () => {
-          const url = `http://localhost:5000/${endpoint}`;
+          const url = `http://filizinmutfagi.hbostann.com${endpoint}`;
           const res = await fetch(url);
           const val = await res.json();
           resolve(val);

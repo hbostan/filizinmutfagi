@@ -16,6 +16,7 @@ app = Flask(__name__)
 app.config.from_object(__name__)
 
 # enable CORS
+# TODO: Allow requests only from the deplyoment domain
 CORS(app, resources={r'/*': {'origins': '*'}})
 
 
@@ -33,7 +34,7 @@ def searchRecipies():
     return json.dumps({"recipies": response}, indent=2)
 
 
-@app.route('/api/recipies', methods=['GET'], subdomain="api")
+@app.route('/api/recipies', methods=['GET'])
 def recipies():
     page = request.args.get('page', default=None, type=int)
     start = request.args.get('from', default=0, type=int)
